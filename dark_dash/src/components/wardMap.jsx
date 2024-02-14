@@ -61,8 +61,7 @@
 
 // export default WardMapComponent;
 
-
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const WardMap = () => {
   useEffect(() => {
@@ -94,7 +93,11 @@ const WardMap = () => {
         src="https://datawrapper.dwcdn.net/PF010/1/"
         scrolling="no"
         frameBorder="0"
-        style={{ width: "100%", minWidth: "100%", border: "none" }}
+        style={{
+          width: "100%",
+          minWidth: "100%",
+          border: "none",
+        }}
         height="694"
         data-external="1"
       ></iframe>
@@ -103,6 +106,3 @@ const WardMap = () => {
 };
 
 export default WardMap;
-
-
-

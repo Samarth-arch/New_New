@@ -3,45 +3,63 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { wardData } from "../data/wardData";
 import { MdNotificationsActive } from "react-icons/md";
+import { useTheme } from "./ThemeContext";
+import { MdToggleOff } from "react-icons/md";
+import { MdToggleOn } from "react-icons/md";
 
 const Navbar = () => {
+  const { toggleTheme, theme } = useTheme();
   const [data, setData] = useState(wardData);
-  const handleLogout =async () => {
-  
+  const handleLogout = async () => {
     try {
       localStorage.removeItem("authtoken");
 
-      if (localStorage.getItem("authtoken")=== null) {
-
-        setislogin(false) 
-        console.log("value of the islogin after logout in navbar is",islogin);
+      if (localStorage.getItem("authtoken") === null) {
+        setislogin(false);
+        console.log("value of the islogin after logout in navbar is", islogin);
         navigate("/login");
-      }  
-  
-  
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-}
+  };
   const [value, setValue] = useState("");
   const handleOnChange = (e) => {
     setValue(e.target.value);
   };
   return (
     <div style={{ userSelect: "none" }}>
-      <nav className="navbar p-0 fixed-top d-flex flex-row">
+      <nav
+        class={`${
+          theme === "light"
+            ? "navbar p-0 fixed-top d-flex flex-row bg-floralwhite"
+            : "navbar p-0 fixed-top d-flex flex-row"
+        }`}
+      >
         <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
           <ul className="navbar-nav navbar-nav-right" style={{ gap: "7px" }}>
             <div className="">
               <div className="input-group md-form form-sm form-1 pl-0">
                 <div className="input-group-prepend">
-                  <span className="input-group-text " id="basic-text1">
+                  <span
+                    className="input-group-text "
+                    id="basic-text1"
+                    style={{
+                      backgroundColor: theme === "light" ? "#e6e6fa" : "",
+                      cursor: "pointer",
+                    }}
+                  >
                     <FaSearch />
                   </span>
                 </div>
 
                 <input
-                  className="form-control my-0 py-1 text-white max-w-[200px] h-8"
+                  className="form-control my-0 py-1 max-w-[200px] h-8"
+                  style={{
+                    backgroundColor: theme === "light" ? "#e6e6fa" : "",
+                    color: theme === "light" ? "black" : "white",
+                    border: theme === "light" ? "0.5px solid black" : "",
+                  }}
                   type="text"
                   placeholder="Search"
                   aria-label="Search"
@@ -72,26 +90,30 @@ const Navbar = () => {
             </div>
 
             <ul className="navbar-nav navbar-nav-right" style={{ gap: "7px" }}>
-            <li>
-              <Link to="/">
-                <button type="button" className="btn btn-outline-primary">
-                  Home
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/complaints">
-                <button type="button" className="btn btn-outline-primary">
-                  Complaints
-                </button>
-              </Link>
-            </li>
-            <li>
-                <button type="button" className="btn btn-outline-primary" onClick={handleLogout}>
+              <li>
+                <Link to="/">
+                  <button type="button" className="btn btn-outline-primary">
+                    Home
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/complaints">
+                  <button type="button" className="btn btn-outline-primary">
+                    Complaints
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={handleLogout}
+                >
                   Logout
                 </button>
-            </li>
-          </ul>
+              </li>
+            </ul>
           </ul>
           <button
             className="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
@@ -99,6 +121,15 @@ const Navbar = () => {
             data-toggle="offcanvas"
           >
             <span className="mdi mdi-format-line-spacing"></span>
+          </button>
+          <button className="mx-2" onClick={toggleTheme}>
+            <span>
+              {theme === "light" ? (
+                <MdToggleOff size={50} color="black" />
+              ) : (
+                <MdToggleOn size={50} color="white" />
+              )}
+            </span>
           </button>
         </div>
       </nav>
