@@ -39,7 +39,7 @@ export function DoughnutComponent({ SetType }) {
       const Uwatertax = data.length - calculateUnpaidTaxes('Water_Tax');
       const Upropertytax = data.length - calculateUnpaidTaxes('Property_Tax');
 
-      console.log('Unpaid tax:', Ugarbagetax, Upropertytax, Uwatertax);
+      // console.log('Unpaid tax:', Ugarbagetax, Upropertytax, Uwatertax);
 
       return {
         labels: ['Unpaid Property Tax', 'Unpaid Water Tax', 'Unpaid Garbage Tax'],
@@ -63,7 +63,7 @@ export function DoughnutComponent({ SetType }) {
       const totalWaterTax = calculateUnpaidTaxes('Water_Tax');
       const totalGarbageTax = calculateUnpaidTaxes('Garbage_Tax');
 
-      console.log('Total paid:', totalGarbageTax, totalPropertyTax, totalWaterTax);
+      // console.log('Total paid:', totalGarbageTax, totalPropertyTax, totalWaterTax);
 
       return {
         labels: ['Paid Property Tax', ' Paid Water Tax', 'Paid Garbage Tax'],

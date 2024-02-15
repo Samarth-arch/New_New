@@ -128,9 +128,6 @@ export function LineGraph() {
           const totalGarbageTax = chartData.datasets[2].data[index];
           const totalPropertyTax = chartData.datasets[3].data[index];
 
-          console.log(
-            `${month} - Total Taxes Paid: ${totalTaxesPaid}, Water Tax: ${totalWaterTax}, Garbage Tax: ${totalGarbageTax}, Property Tax: ${totalPropertyTax}`
-          );
         });
       } catch (error) {
         console.error("Error fetching data from API:", error);

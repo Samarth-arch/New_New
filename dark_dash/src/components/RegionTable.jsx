@@ -55,7 +55,7 @@ import { notecontext } from "./notecontext";
 
   const handleclick = (WardNumber) => {
     setClicked(WardNumber);
-    console.log("ward number from the regiontabel",WardNumber);
+    // console.log("ward number from the regiontabel",WardNumber);
   }
   return(
       <div className="card" style={{ height: "100%", overflow: "auto" }}>

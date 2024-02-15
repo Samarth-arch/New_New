@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactSpeedometer from 'react-d3-speedometer';
-import WardMeter from './wardmeter';
 
 const Speedometer = ({ TaxSelected ,wardNumber}) => {
   const [data, setData] = useState([]);
 
-  console.log("sppedometer",wardNumber)
+  // console.log("sppedometer",wardNumber)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,17 +80,10 @@ const Speedometer = ({ TaxSelected ,wardNumber}) => {
       const wardDataFiltered = data.filter((entry) => entry.ward === String(wardNumber));
       const totalEntries = wardDataFiltered.length;
 
-      // Calculate total sum paid for Water Tax
-      // const totalWaterTax = ((wardDataFiltered.reduce(( entry) => entry.Water_Tax!==0))/totalEntries)*100;
-      const totalWaterTax = (wardDataFiltered.filter(entry => entry.Water_Tax !== 0).length)/totalEntries * 100;
+         const totalWaterTax = (wardDataFiltered.filter(entry => entry.Water_Tax !== 0).length)/totalEntries * 100;
       const totalGarbageTax = (wardDataFiltered.filter(entry => entry.Garbage_Tax !== 0).length)/totalEntries * 100;;
       const totalPropertyTax = (wardDataFiltered.filter(entry => entry.Property_Tax !== 0).length)/totalEntries * 100;
-      // const totalGarbageTax = ((wardDataFiltered.reduce(( entry) => entry.Garbage_Tax!==0))/totalEntries)*100;
-      // const totalPropertyTax = ((wardDataFiltered.reduce(( entry) => entry.Property_Tax!==0))/totalEntries)*100;
-  
-      // console.log(`${wardNumber} ka ${totalGarbageTax}, ${totalWaterTax}, ${totalPropertyTax} or ${totalEntries}`);
-      // Render based on TaxSelected
-      if (TaxSelected === 'Water_Tax') {
+           if (TaxSelected === 'Water_Tax') {
           return (
             <>
               <ReactSpeedometer

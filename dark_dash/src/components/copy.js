@@ -6,7 +6,23 @@ import { MdNotificationsActive } from "react-icons/md";
 
 const Navbar = () => {
   const [data, setData] = useState(wardData);
+  const handleLogout =async () => {
+  
+    try {
+      localStorage.removeItem("authtoken");
 
+      if (localStorage.getItem("authtoken")=== null) {
+
+        setislogin(false) 
+        console.log("value of the islogin after logout in navbar is",islogin);
+        navigate("/login");
+      }  
+  
+  
+    } catch (error) {
+      console.log(error)
+    }
+}
   const [value, setValue] = useState("");
   const handleOnChange = (e) => {
     setValue(e.target.value);

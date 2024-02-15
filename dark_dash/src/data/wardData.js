@@ -10,7 +10,7 @@ export const wardData=[
     { wardNo: "Ward 9", wardName: "banganga" },
     { wardNo: "Ward 10", wardName: " bhagirath pura" },
     { wardNo: "Ward 11", wardName: "govind colony " },
-    { wardNo: "Ward 12", wardName: "govind colony " },
+    { wardNo: "Ward 12", wardName: "juni indore " },
     { wardNo: "Ward13", wardName: "sangam nagar " },
     { wardNo: "Ward 14", wardName: "ashok nagar" },
     { wardNo: "Ward 15", wardName: "bijasan" },
