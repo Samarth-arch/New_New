@@ -103,7 +103,6 @@ export function LineGraph() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Replace 'your-api-endpoint' with the actual API endpoint
         const response = await fetch('http://localhost:8080/maps/markers');
         const apiData = await response.json();
 
